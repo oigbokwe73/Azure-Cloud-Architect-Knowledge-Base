@@ -1,4 +1,4 @@
-# Azure-Cloud-Architect-Knowledge-Based-
+# Azure-Cloud-Architect-Knowledge-Based
 
 ### **1. How do you approach translating business requirements into a scalable and cost-effective Azure solution?**
 Translating business requirements into a scalable and cost-effective Azure solution involves a structured approach that aligns cloud architecture with business objectives, technical constraints, and operational needs. Here's an expanded explanation of how to approach this process:
