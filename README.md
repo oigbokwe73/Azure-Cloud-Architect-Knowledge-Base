@@ -291,8 +291,8 @@ graph TD;
   A[Users] -->|HTTPS| B[Azure Application Gateway with WAF]
   B --> |HTTPS| C[Web Tier: Azure App Services]
   C --> |HTTPS| D[API Tier: Azure API Management]
-  D --> |Private Link| E[Database Tier: Azure SQL Database]
-  D --> |Private Link| F[NoSQL Tier: Azure Cosmos DB]
+  D --> |Private-Link| E[Database Tier: Azure SQL Database]
+  D --> |Private-Link| F[NoSQL Tier: Azure Cosmos DB]
   
   subgraph VNet Segmentation
     C
@@ -302,10 +302,10 @@ graph TD;
   end
   
   subgraph Network Security
-    G[Azure Firewall]
-    H[NSG Web Tier]
-    I[NSG API Tier]
-    J[NSG Database Tier]
+    G[Azure-Firewall]
+    H[NSG-Web-Tier]
+    I[NSG-API-Tier]
+    J[NSG-Database-Tier]
   end
   
   B --> G
@@ -314,9 +314,9 @@ graph TD;
   E --> J
   
   subgraph Data Security
-    K[Azure Key Vault]
-    L[Transparent Data Encryption (TDE)]
-    M[Data Loss Prevention (DLP)]
+    K[Azure-Key-Vault]
+    L[Transparent-Data-Encryption (TDE)]
+    M[Data-Loss-Prevention-(DLP)]
   end
   
   E --> L
