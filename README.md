@@ -315,7 +315,7 @@ graph TD;
   
   subgraph Data Security
     K[Azure-Key-Vault]
-    L[Transparent-Data-Encryption (TDE)]
+    L[Transparent-Data-Encryption-(TDE)]
     M[Data-Loss-Prevention-(DLP)]
   end
   
