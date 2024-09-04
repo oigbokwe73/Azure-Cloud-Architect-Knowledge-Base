@@ -739,7 +739,7 @@ graph TD;
   A[Azure Updates & Azure Blog] -->|Discover Synapse Link| B[Architecture Team]
   B -->|Microsoft Learn & Training| C[Team Knowledge Session]
   C -->|Documentation Update| D[Internal Knowledge Base]
-  B -->|PoC Decision| E[Proof of Concept (PoC)]
+  B -->|PoC Decision| E[Proof of Concept PoC]
   E -->|Implement Synapse Link| F[Azure SQL Database <--> Azure Synapse Analytics]
   E -->|Measure Performance| G[Data Latency and Cost Analysis]
   G -->|Analyze Results| H[Cost-Benefit Analysis]
