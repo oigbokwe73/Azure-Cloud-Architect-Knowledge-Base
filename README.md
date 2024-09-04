@@ -140,55 +140,40 @@ A global e-commerce company wants to build a highly reliable and performant plat
 
 ```mermaid
 graph TD;
-  A[Users] -->|HTTPS| B[Azure Application Gateway with WAF]
-  B --> |HTTPS| C[Web Tier: Azure App Services]
-  C --> |HTTPS| D[API Tier: Azure API Management]
-  D --> |Private Link| E[Database Tier: Azure SQL Database]
-  D --> |Private Link| F[NoSQL Tier: Azure Cosmos DB]
-  
-  subgraph VNet Segmentation
-    C
-    D
-    E
-    F
+  A[Users Worldwide] --> |HTTPS| B[Azure Front Door]
+  B --> |Load Balancing| C[Azure App Services - East US]
+  B --> |Load Balancing| D[Azure App Services - West Europe]
+  C --> E[Azure Kubernetes Service - East US]
+  D --> F[Azure Kubernetes Service - West Europe]
+  E --> G[Azure SQL Database - East US Primary]
+  F --> H[Azure SQL Database - West Europe Secondary]
+  E --> I[Azure Cosmos DB - Multi-Region Write]
+  F --> I
+  E --> J[Azure Cache for Redis]
+  F --> J
+  J --> G
+  J --> H
+  subgraph Networking and Security
+    K[Azure VNet and NSGs]
+    L[Azure Private Link]
+    M[Azure DDoS Protection]
   end
-  
-  subgraph Network Security
-    G[Azure Firewall]
-    H[NSG Web Tier]
-    I[NSG API Tier]
-    J[NSG Database Tier]
-  end
-  
-  B --> G
-  C --> H
-  D --> I
-  E --> J
-  
-  subgraph Data Security
-    K[Azure Key Vault]
-    L[Transparent Data Encryption TDE]
-    M[Data Loss Prevention DLP]
-  end
-  
-  E --> L
-  F --> L
   C --> K
   D --> K
-  E --> K
-  
-  subgraph Monitoring and Response
-    N[Azure Security Center]
-    O[Azure Sentinel]
-    P[Automated Response with Logic Apps]
+  G --> L
+  H --> L
+  B --> M
+  F --> M
+  G --> M
+  subgraph Monitoring and Recovery
+    N[Azure Monitor & App Insights]
+    O[Azure Site Recovery]
   end
-  
   G --> N
   H --> N
   I --> N
-  J --> N
-  N --> O
-  O --> P
+  G --> O
+  H --> O
 ```
 
 ### **Key Components in the Diagram:**
@@ -306,8 +291,8 @@ graph TD;
   A[Users] -->|HTTPS| B[Azure Application Gateway with WAF]
   B --> |HTTPS| C[Web Tier: Azure App Services]
   C --> |HTTPS| D[API Tier: Azure API Management]
-  D --> |Private-Link| E[Database Tier: Azure SQL Database]
-  D --> |Private-Link| F[NoSQL Tier: Azure Cosmos DB]
+  D --> |Private Link| E[Database Tier: Azure SQL Database]
+  D --> |Private Link| F[NoSQL Tier: Azure Cosmos DB]
   
   subgraph VNet Segmentation
     C
@@ -317,10 +302,10 @@ graph TD;
   end
   
   subgraph Network Security
-    G[Azure-Firewall]
-    H[NSG-Web-Tier]
-    I[NSG-API-Tier]
-    J[NSG-Database-Tier]
+    G[Azure Firewall]
+    H[NSG Web Tier]
+    I[NSG API Tier]
+    J[NSG Database Tier]
   end
   
   B --> G
@@ -329,9 +314,9 @@ graph TD;
   E --> J
   
   subgraph Data Security
-    K[Azure-Key-Vault]
-    L[Transparent-Data-Encryption-(TDE)]
-    M[Data-Loss-Prevention-(DLP)]
+    K[Azure Key Vault]
+    L[Transparent Data Encryption TDE]
+    M[Data Loss Prevention DLP]
   end
   
   E --> L
