@@ -33,7 +33,7 @@ Translating business requirements into a scalable and cost-effective Azure solut
    - **Reserved Instances and Spot VMs:** For predictable workloads, leverage reserved instances for Virtual Machines (VMs) to gain cost savings over pay-as-you-go pricing. Use spot VMs for non-critical, interruptible workloads to further optimize costs.
 
 6. **Implement DevOps Practices:**
-   - **Infrastructure as Code (IaC):** Use tools like Azure Resource Manager (ARM) templates, Bicep, or Terraform to define and manage infrastructure as code. This ensures consistent deployments across environments and makes the infrastructure easily replicable.
+   - **Infrastructure as Code (IaC):** Use tools like Azure Resource Manager (ARM) templates, Bicep, or Terraform to define and manage infrastructure as code. This ensures consistent deployments across environments and makes the infrastructure easily repeatable.
    - **CI/CD Pipeline Setup:** Set up CI/CD pipelines using Azure DevOps or GitHub Actions to automate the deployment process, enabling quick iterations, testing, and delivery. This reduces time-to-market and helps in maintaining code quality and consistency.
 
 7. **Develop a Proof of Concept (PoC):**
