@@ -3,7 +3,7 @@
 ### **1. How do you approach translating business requirements into a scalable and cost-effective Azure solution?**
 Translating business requirements into a scalable and cost-effective Azure solution involves a structured approach that aligns cloud architecture with business objectives, technical constraints, and operational needs. Here's an expanded explanation of how to approach this process:
 
-### **Approach to Translating Business Requirements into an Azure Solution**
+## **Approach to Translating Business Requirements into an Azure Solution**
 
 1. **Requirement Gathering and Analysis:**
    - **Understand Business Objectives:** Begin by engaging with stakeholders to understand the core business objectives. Are they looking to reduce costs, increase scalability, enhance performance, improve security, or all of these? Clarify the expected outcomes and KPIs (Key Performance Indicators) to measure success.
@@ -51,7 +51,7 @@ Translating business requirements into a scalable and cost-effective Azure solut
 10. **Continuous Improvement:**
     - **Regular Review and Optimization:** Continuously monitor and review the solution post-implementation, leveraging tools like Azure Advisor and Azure Cost Management to identify potential optimizations in performance, security, and cost.
 
-### **Example Use Case: Building a Scalable E-Commerce Platform**
+## **Example Use Case: Building a Scalable E-Commerce Platform**
 
 1. **Business Requirement:** An e-commerce company wants to build a new platform that can scale during peak shopping seasons, is secure, and cost-effective, and provides high availability.
    
@@ -71,7 +71,7 @@ By following this structured approach, you can effectively translate business re
 
 Designing an Azure architecture to meet strict performance and reliability requirements involves careful planning, selecting appropriate Azure services, and implementing best practices to ensure high availability, low latency, and fault tolerance. This often includes leveraging Azure’s built-in capabilities for scalability, redundancy, and disaster recovery.
 
-### **Approach to Designing an Azure Architecture for Performance and Reliability**
+## **Approach to Designing an Azure Architecture for Performance and Reliability**
 
 When designing such an architecture, the following steps are typically involved:
 
