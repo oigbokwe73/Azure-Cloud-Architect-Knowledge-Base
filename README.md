@@ -348,9 +348,7 @@ graph TD;
 - **Database Tier (Azure SQL Database):** Stores sensitive patient data securely with encryption and private link connectivity.
 - **NoSQL Tier (Azure Cosmos DB):** Stores unstructured data with globally distributed capabilities.
 - **Network Security:** Azure Firewall and NSGs to manage and monitor network traffic between subnets.
-- **Data Security:** Azure Key Vault for managing secrets, Transparent Data
-
- Encryption (TDE) for encrypting data at rest, and Data Loss Prevention (DLP) to protect sensitive data.
+- **Data Security:** Azure Key Vault for managing secrets, Transparent Data Encryption (TDE) for encrypting data at rest, and Data Loss Prevention (DLP) to protect sensitive data.
 - **Monitoring and Response:** Azure Security Center, Azure Sentinel for advanced threat detection, and automated incident response using Logic Apps.
 
 ### **Outcome:**
