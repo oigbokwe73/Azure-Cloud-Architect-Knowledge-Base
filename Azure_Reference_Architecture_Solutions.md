@@ -136,7 +136,7 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that allows you t
 
 ```mermaid
 graph TD
-    subgraph AKS Cluster
+    subgraph AKSCluster
         NS1["Namespace: Product"]
         NS2["Namespace: Order"]
         NS3["Namespace: Payment"]
@@ -149,7 +149,7 @@ graph TD
         NS5 --> NotificationPods["Pods: Notification Service"]
     end
 
-    HPA["Horizontal Pod Autoscaler"] --> AKS Cluster
+    HPA["Horizontal Pod Autoscaler"] --> AKSCluster
 ```
 
 ### 2. Azure API Management (APIM)
@@ -178,7 +178,7 @@ graph TD
     end
 
     Client["Client Applications"] --> APIGW
-    APIGW --> AKS Cluster
+    APIGW --> AKSCluster
 ```
 
 ### 3. Azure DevOps CI/CD Pipelines
