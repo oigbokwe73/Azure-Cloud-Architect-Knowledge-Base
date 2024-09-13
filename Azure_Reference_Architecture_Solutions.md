@@ -41,7 +41,7 @@ Here is a detailed **Mermaid diagram** representing the microservices architectu
 
 ```mermaid
 graph TD
-    subgraph Azure AKS
+    subgraph AzureAKS
         ProductCatalogService["Product Catalog Service"]
         OrderService["Order Service"]
         PaymentService["Payment Service"]
@@ -82,10 +82,10 @@ graph TD
     PaymentService --> EventBus
     EventBus --> NotificationService
     NotificationService -- Data --> CosmosDB
-    CICD --> Azure AKS
+    CICD --> AzureAKS
     Monitor --> AppInsights
-    Azure AKS --> Monitor
-    Azure AKS --> AppInsights
+    AzureAKS --> Monitor
+    AzureAKS --> AppInsights
 ```
 
 ### Explanation of the Diagram
