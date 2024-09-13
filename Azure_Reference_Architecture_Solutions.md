@@ -121,3 +121,206 @@ graph TD
 - **Resilience**: Failure of one microservice does not affect the entire system; self-healing capabilities in AKS help maintain uptime.
 - **DevOps Efficiency**: Automated CI/CD pipelines ensure rapid and reliable deployments.
 
+### 1. Azure Kubernetes Service (AKS)
+
+**Use Case**: Deploying Microservices on AKS for an E-Commerce Platform
+
+Azure Kubernetes Service (AKS) is a managed Kubernetes service that allows you to run containerized applications. It provides capabilities like autoscaling, service discovery, and load balancing. In the e-commerce platform, AKS is used to host all microservices, ensuring high availability, scalability, and self-healing of applications.
+
+**Architecture Details**:
+- AKS Cluster hosts multiple microservices in separate namespaces.
+- Each microservice is deployed as a set of pods and managed using Kubernetes deployments.
+- Horizontal Pod Autoscaler (HPA) is configured to scale the number of pods based on CPU/memory utilization.
+
+**Mermaid Diagram**:
+
+```mermaid
+graph TD
+    subgraph AKS Cluster
+        NS1["Namespace: Product"]
+        NS2["Namespace: Order"]
+        NS3["Namespace: Payment"]
+        NS4["Namespace: User"]
+        NS5["Namespace: Notification"]
+        NS1 --> ProductPods["Pods: Product Catalog Service"]
+        NS2 --> OrderPods["Pods: Order Service"]
+        NS3 --> PaymentPods["Pods: Payment Service"]
+        NS4 --> UserPods["Pods: User Service"]
+        NS5 --> NotificationPods["Pods: Notification Service"]
+    end
+
+    HPA["Horizontal Pod Autoscaler"] --> AKS Cluster
+```
+
+### 2. Azure API Management (APIM)
+
+**Use Case**: Securing and Managing APIs for E-Commerce Microservices
+
+Azure API Management (APIM) acts as a gateway for all the APIs exposed by the microservices. It provides security features, caching, rate limiting, and API monitoring. For the e-commerce platform, APIM ensures that external clients securely access the microservices.
+
+**Architecture Details**:
+- APIM manages APIs for each microservice.
+- Policies are configured for rate limiting, JWT validation, and caching.
+- Logging and monitoring are enabled for API requests.
+
+**Mermaid Diagram**:
+
+```mermaid
+graph TD
+    subgraph APIM["Azure API Management"]
+        APIGW["API Gateway"]
+        Policy1["Rate Limiting Policy"]
+        Policy2["JWT Validation Policy"]
+        Policy3["Caching Policy"]
+        APIGW --> Policy1
+        APIGW --> Policy2
+        APIGW --> Policy3
+    end
+
+    Client["Client Applications"] --> APIGW
+    APIGW --> AKS Cluster
+```
+
+### 3. Azure DevOps CI/CD Pipelines
+
+**Use Case**: Continuous Integration and Continuous Deployment for Microservices
+
+Azure DevOps is used to automate the build, test, and deployment of microservices. CI/CD pipelines ensure that every code change is automatically built, tested, and deployed to the AKS cluster.
+
+**Architecture Details**:
+- CI pipeline triggers on code commits to the repository, builds Docker images, and pushes them to Azure Container Registry (ACR).
+- CD pipeline deploys the images from ACR to the AKS cluster.
+
+**Mermaid Diagram**:
+
+```mermaid
+graph TD
+    Repo["Code Repository"] --> Build["Build Pipeline"]
+    Build --> DockerImage["Docker Image"]
+    DockerImage --> ACR["Azure Container Registry"]
+    ACR --> Deploy["Deploy Pipeline"]
+    Deploy --> AKSCluster["AKS Cluster"]
+```
+
+### 4. Azure Service Bus
+
+**Use Case**: Reliable Messaging Between Microservices
+
+Azure Service Bus is a fully managed message broker that provides reliable message delivery between microservices. It is used for decoupling microservices, such as the Payment Service sending order confirmation messages to the Notification Service.
+
+**Architecture Details**:
+- Payment Service sends messages to a Service Bus topic.
+- Notification Service subscribes to the topic to receive messages asynchronously.
+
+**Mermaid Diagram**:
+
+```mermaid
+graph TD
+    PaymentService["Payment Service"] --> ServiceBusTopic["Service Bus Topic"]
+    ServiceBusTopic --> Subscription["Notification Service Subscription"]
+    Subscription --> NotificationService["Notification Service"]
+```
+
+### 5. Azure SQL Database and Cosmos DB
+
+**Use Case**: Storing Structured and NoSQL Data
+
+Azure SQL Database and Azure Cosmos DB are used to store structured and unstructured data, respectively. The Product Catalog, Order, and User Services use Azure SQL Database, while the Notification Service uses Cosmos DB for storing high-throughput and low-latency data.
+
+**Architecture Details**:
+- Azure SQL Database stores relational data for product catalog, orders, and users.
+- Azure Cosmos DB stores notification logs and user preferences.
+
+**Mermaid Diagram**:
+
+```mermaid
+graph TD
+    ProductCatalogService["Product Catalog Service"] --> SQLDB["Azure SQL Database"]
+    OrderService["Order Service"] --> SQLDB
+    UserService["User Service"] --> SQLDB
+    NotificationService["Notification Service"] --> CosmosDB["Azure Cosmos DB"]
+```
+
+### 6. Monitoring and Observability with Azure Monitor and Application Insights
+
+**Use Case**: Monitoring Microservices Health and Performance
+
+Azure Monitor and Application Insights provide monitoring and observability for microservices running on AKS. They collect telemetry data to track application health, performance, and availability.
+
+**Architecture Details**:
+- Application Insights SDK is integrated into microservices to collect telemetry data.
+- Azure Monitor is configured to create alerts and dashboards for proactive monitoring.
+
+**Mermaid Diagram**:
+
+```mermaid
+graph TD
+    AKSCluster["AKS Cluster"] --> AppInsights["Azure Application Insights"]
+    AppInsights --> AzureMonitor["Azure Monitor"]
+    AzureMonitor --> Alerts["Alerts and Dashboards"]
+```
+
+### 7. Deployment Strategies: Blue-Green, Canary, and A/B Deployments
+
+**Use Case**: Safely Deploying New Versions of Microservices
+
+Deployment strategies like Blue-Green, Canary, and A/B are used to deploy new versions of microservices safely. For example, a Canary deployment gradually routes a percentage of traffic to the new version before full rollout.
+
+**Architecture Details**:
+- Deploy both old and new versions of a microservice.
+- Traffic is gradually shifted from the old version to the new version based on success criteria.
+
+**Mermaid Diagram**:
+
+```mermaid
+graph TD
+    OldVersion["Old Version Pods"] --> Traffic["Traffic Splitter"]
+    NewVersion["New Version Pods"] --> Traffic
+    Traffic --> Users["Users"]
+```
+
+### 8. Security
+
+**Use Case**: Securing Microservices and Data
+
+Security is a critical component in microservices architecture. It involves securing APIs, data, and network communication. Azure provides tools like RBAC, Network Security Groups (NSGs), Azure Key Vault, and more.
+
+**Architecture Details**:
+- Azure RBAC controls access to resources.
+- NSGs secure inbound and outbound traffic to AKS nodes.
+- Azure Key Vault stores secrets, keys, and certificates securely.
+
+**Mermaid Diagram**:
+
+```mermaid
+graph TD
+    RBAC["Azure RBAC"] --> AKSCluster["AKS Cluster"]
+    NSG["Network Security Group"] --> AKSCluster
+    KeyVault["Azure Key Vault"] --> Microservices
+```
+
+### 9. Networking and Integration
+
+**Use Case**: Managing Network Traffic and Integration Patterns
+
+Networking involves setting up Virtual Networks (VNets), subnets, ingress/egress traffic management, and integration with services like Azure Front Door for global traffic management.
+
+**Architecture Details**:
+- Azure Virtual Network (VNet) contains subnets for AKS and other services.
+- Azure Front Door provides global traffic routing and failover for APIs.
+
+**Mermaid Diagram**:
+
+```mermaid
+graph TD
+    subgraph VNet["Azure Virtual Network"]
+        AKSSubnet["AKS Subnet"]
+        DBSubnet["Database Subnet"]
+        GatewaySubnet["Gateway Subnet"]
+    end
+
+    AzureFrontDoor["Azure Front Door"] --> AKSSubnet
+    AKSSubnet --> Microservices
+    AKSSubnet --> DBSubnet
+```
+
