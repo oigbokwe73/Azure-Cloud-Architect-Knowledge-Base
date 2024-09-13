@@ -40,52 +40,47 @@ The microservices architecture for the e-commerce platform on Azure would involv
 Here is a detailed **Mermaid diagram** representing the microservices architecture for the e-commerce platform on Azure:
 
 ```mermaid
-graph TD
-    subgraph AzureAKS
+---
+config:
+  theme: dark
+  layout: elk
+---
+flowchart TD
+ subgraph AzureAKS["AzureAKS"]
         ProductCatalogService["Product Catalog Service"]
         OrderService["Order Service"]
         PaymentService["Payment Service"]
         UserService["User Service"]
         NotificationService["Notification Service"]
-    end
-
-    subgraph Azure API Management
+  end
+ subgraph subGraph1["Azure API Management"]
         APIGateway["API Gateway"]
-    end
-
-    subgraph Azure DevOps
+  end
+ subgraph subGraph2["Azure DevOps"]
         CICD["CI/CD Pipelines"]
-    end
-
-    subgraph Azure Service Bus
+  end
+ subgraph subGraph3["Azure Service Bus"]
         EventBus["Event Bus"]
-    end
-
-    subgraph Databases
+  end
+ subgraph Databases["Databases"]
         SQLDB["Azure SQL Database"]
         CosmosDB["Azure Cosmos DB"]
-    end
-
-    subgraph Monitoring
+  end
+ subgraph Monitoring["Monitoring"]
         Monitor["Azure Monitor"]
         AppInsights["Azure Application Insights"]
-    end
-
+  end
     Client["Client Applications Web, Mobile"] --> APIGateway
-    APIGateway --> ProductCatalogService
-    APIGateway --> OrderService
-    APIGateway --> PaymentService
-    APIGateway --> UserService
+    CICD --> AzureAKS
+    APIGateway --> ProductCatalogService & OrderService & PaymentService & UserService
     ProductCatalogService -- Data --> SQLDB
     OrderService -- Data --> SQLDB
     UserService -- Data --> SQLDB
     PaymentService --> EventBus
     EventBus --> NotificationService
     NotificationService -- Data --> CosmosDB
-    CICD --> AzureAKS
     Monitor --> AppInsights
-    AzureAKS --> Monitor
-    AzureAKS --> AppInsights
+    AzureAKS --> Monitor & AppInsights
 ```
 
 ### Explanation of the Diagram
