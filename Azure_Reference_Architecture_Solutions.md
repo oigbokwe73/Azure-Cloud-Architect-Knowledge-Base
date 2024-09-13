@@ -40,11 +40,6 @@ The microservices architecture for the e-commerce platform on Azure would involv
 Here is a detailed **Mermaid diagram** representing the microservices architecture for the e-commerce platform on Azure:
 
 ```mermaid
----
-config:
-  theme: dark
-  layout: elk
----
 flowchart TD
  subgraph AzureAKS["AzureAKS"]
         ProductCatalogService["Product Catalog Service"]
