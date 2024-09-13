@@ -1,4 +1,4 @@
-### Microservices and Container-Based Architectures on Azure
+## Microservices and Container-Based Architectures on Azure
 
 Microservices architecture is an approach to developing applications where a large application is built as a suite of small, independently deployable services. Each service is responsible for a specific business capability and communicates with other services through well-defined APIs, often using HTTP/REST, gRPC, or messaging protocols.
 
