@@ -71,7 +71,7 @@ graph TD
         AppInsights["Azure Application Insights"]
     end
 
-    Client["Client Applications (Web, Mobile)"] --> APIGateway
+    Client["Client Applications Web, Mobile"] --> APIGateway
     APIGateway --> ProductCatalogService
     APIGateway --> OrderService
     APIGateway --> PaymentService
@@ -121,4 +121,3 @@ graph TD
 - **Resilience**: Failure of one microservice does not affect the entire system; self-healing capabilities in AKS help maintain uptime.
 - **DevOps Efficiency**: Automated CI/CD pipelines ensure rapid and reliable deployments.
 
-Would you like more details on any specific component or further explanation of how these Azure services are configured in this architecture?
