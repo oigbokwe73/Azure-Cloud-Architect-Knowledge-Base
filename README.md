@@ -156,7 +156,7 @@ graph TD;
   subgraph Networking and Security
     K[Azure VNet and NSGs]
     L[Azure Private Link]
-    M[Azure DDoS Protection]
+    M[Azure DDoS Protection] 
   end
   C --> K
   D --> K
